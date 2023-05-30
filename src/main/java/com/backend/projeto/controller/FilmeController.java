@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,16 +28,22 @@ public class FilmeController {
 		return filmeService.buscarTodos();
 	}
 	
-	@PostMapping("/")
+	@GetMapping("/{id}")
+	public Filme buscarPorId(@PathVariable("id") Long id) {
+		return filmeService.buscarPorId(id);
+	}
+	
+	@PostMapping("/cadastro/")
 	public Filme inserir(@RequestBody Filme filme) {
 		return filmeService.inserir(filme);
 	}
 	
-	@PutMapping("/")
+	@PutMapping("/cadastro/")
 	public Filme alterar(@RequestBody Filme filme) {
 		return filmeService.alterar(filme);
 	}
 	
+	@DeleteMapping("/cadastro/{id}")
 	public ResponseEntity<Void> excluir(@PathVariable("id") Long id) {
 		try {
 			filmeService.excluir(id);

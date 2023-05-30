@@ -18,6 +18,11 @@ public class SerieService {
 		return serieRepository.findAll();
 	}
 	
+	public Serie buscarPorId(Long id) {
+		Serie serie = serieRepository.findById(id).get();
+		return serie;
+	}
+	
 	public Serie inserir(Serie serie) {
 		return serieRepository.saveAndFlush(serie);
 	}

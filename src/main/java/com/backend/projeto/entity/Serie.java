@@ -19,10 +19,11 @@ public class Serie {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	private String nome;
+	private String titulo;
 	private String lancamento;
-	private String duracao;
-	private String descricao;
+	private String episodios;
+	private String temporadas;
+	private String sinopse;
 	
 	@ManyToOne
 	@JoinColumn(name = "idCategoria")

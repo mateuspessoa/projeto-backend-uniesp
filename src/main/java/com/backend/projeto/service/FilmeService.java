@@ -18,6 +18,11 @@ public class FilmeService {
 		return filmeRepository.findAll();
 	}
 	
+	public Filme buscarPorId(Long id) {
+		Filme filme = filmeRepository.findById(id).get();
+		return filme;
+	}
+	
 	public Filme inserir(Filme filme) {
 		return filmeRepository.saveAndFlush(filme);
 	}
